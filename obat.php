@@ -1,5 +1,6 @@
 <?php
 include 'functions/obat/views.php';
+include 'functions/obat/pagination.php';
 ?>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -42,14 +43,16 @@ include 'functions/obat/views.php';
 						<tr class="border-b">
 							<td class="py-2 px-4"><?php echo $row['id'] ?></td>
 							<td class="py-2 px-4"><?php echo $row['nama'] ?></td>
-							<td class="py-2 px-4"><?php echo $row['kategori_id'] ?></td>
-							<td class="py-2 px-4"><?php echo $row['golongan_id'] ?></td>
+							<td class="py-2 px-4 cursor-pointer" onclick="window.location.href = 'kategori.php'"><?php echo $row['kategori'] ?></td>
+							<td class="py-2 px-4 cursor-pointer" onclick="window.location.href = 'golongan.php'"><?php echo $row['golongan'] ?></td>
 							<td class="py-2 px-4"><?php echo $row['produsen'] ?></td>
 							<td class="py-2 px-4"><?php echo $row['harga'] ?></td>
 							<td class="py-2 px-4"><?php echo $row['stok'] ?></td>
 							<td class="py-2 px-4">
 								<!-- Tombol Edit -->
 								<a href="edit_obat.php?id=001" class="text-blue-500 hover:text-blue-700 font-semibold">Edit</a> 
+								|
+								<a href="detail.php?id=<?php echo $row['id']; ?>&page=<?php echo $page; ?>" class="text-[#E40EC8] hover:text-[#B10C9B] font-semibold">Detail</a> 
 								|
 								<!-- Tombol Hapus -->
 								<a href="hapus_obat.php?id=001" class="text-red-500 hover:text-red-700 font-semibold" onclick="return confirm('Apakah Anda yakin ingin menghapus obat ini?');">Hapus</a>
@@ -81,6 +84,23 @@ include 'functions/obat/views.php';
 				</tbody>
 			</table>
 		<?php endif ?>
+	</div>
+	<div class="mt-6 flex justify-center">
+		<?php if ($total_pages >= 1): ?> 
+			<ul class="inline-flex space-x-2">
+				<?php if ($page > 1): ?>
+					<li><a href="?page=<?php echo $page - 1; ?>" class="bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded">Previous</a></li>
+				<?php endif; ?>
+
+				<?php for ($i = 1; $i <= $total_pages; $i++): ?>
+					<li><a href="?page=<?php echo $i; ?>" class="px-3 py-1 rounded <?php echo $i == $page ? 'bg-green-500 text-white' : 'bg-gray-200 hover:bg-gray-300'; ?>"><?php echo $i; ?></a></li>
+				<?php endfor; ?>
+
+				<?php if ($page < $total_pages): ?>
+					<li><a href="?page=<?php echo $page + 1; ?>" class="bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded">Next</a></li>
+				<?php endif; ?>
+			</ul>
+		<?php endif; ?>
 	</div>
     <footer class="absolute bottom-0 right-0 left-0 bg-[#101018] p-6 text-center">
         <p class="text-white">&copy; 2024 Apotek Sri. All Right Reserved</p>

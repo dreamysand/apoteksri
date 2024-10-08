@@ -1,7 +1,7 @@
 <?php
-include 'functions/obat/kategoriobat/views.php';
-include 'functions/obat/kategoriobat/pagination.php';
-include 'functions/obat/kategoriobat/delete.php';
+include 'functions/obat/golonganobat/views.php';
+include 'functions/obat/golonganobat/pagination.php';
+include 'functions/obat/golonganobat/delete.php';
 ?>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -17,20 +17,20 @@ include 'functions/obat/kategoriobat/delete.php';
 	<div class="bg-fixed bg-no-repeat bg-center h-3/4 bg-cover" style="background-image: url('asset/background.svg')">
         <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
             <div class="text-center text-white">
-                <h1 class="text-5xl font-bold mb-4">Kategori Obat di Apotek <span class="text-[#4CDF12]">Sri</span></h1>
-                <p class="text-xl mb-8">Tabel Berisi Keterangan Kategori Obat-Obatan Dalam Apotek</p>
+                <h1 class="text-5xl font-bold mb-4">Golongan Obat di Apotek <span class="text-[#4CDF12]">Sri</span></h1>
+                <p class="text-xl mb-8">Tabel Berisi Keterangan Golongan Obat-Obatan Dalam Apotek</p>
                 <a href="#tabelobat" class="bg-[#3AAF0C] text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition duration-300">Lihat Tabel</a>
             </div>
         </div>
     </div>
 	<div class="container mx-auto p-6 mt-12">
-		<h1 class="text-4xl font-bold mb-6">Kategori Obat-Obatan</h1>
+		<h1 class="text-4xl font-bold mb-6">Golongan Obat-Obatan</h1>
 		<?php if (count($result) > 0): ?>
 			<table id="tabelobat" class="min-w-full bg-white shadow-md rounded-lg text-center">
 				<thead>
 					<tr class="bg-green-500 text-white">
 						<th class="py-2 px-4">ID</th>
-						<th class="py-2 px-4">Kategori</th>
+						<th class="py-2 px-4">Golongan</th>
 						<th class="py-2 px-4">Gambar</th>
 						<th class="py-2 px-4">Aksi</th> <!-- Kolom baru untuk Aksi -->
 					</tr>
@@ -39,7 +39,7 @@ include 'functions/obat/kategoriobat/delete.php';
 					<tbody>
 						<tr class="border-b">
 							<td class="py-2 px-4"><?php echo $row['id'] ?></td>
-							<td class="py-2 px-4"><?php echo $row['kategori'] ?></td>
+							<td class="py-2 px-4"><?php echo $row['golongan'] ?></td>
 							<td class="py-2 px-4"><?php include $row['gambar'];?></td>
 							<td class="py-2 px-4">
 								<!-- Tombol Edit -->
@@ -57,7 +57,7 @@ include 'functions/obat/kategoriobat/delete.php';
 				<thead>
 					<tr class="bg-green-500 text-white">
 						<th class="py-2 px-4">ID</th>
-						<th class="py-2 px-4">Kategori</th>
+						<th class="py-2 px-4">golongan</th>
 						<th class="py-2 px-4">Gambar</th>
 						<th class="py-2 px-4">Aksi</th> <!-- Kolom baru untuk Aksi -->
 					</tr>
