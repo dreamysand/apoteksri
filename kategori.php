@@ -1,6 +1,7 @@
 <?php
 include 'functions/obat/kategoriobat/views.php';
 include 'functions/obat/kategoriobat/pagination.php';
+include 'functions/obat/kategoriobat/delete.php';
 ?>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -45,7 +46,7 @@ include 'functions/obat/kategoriobat/pagination.php';
 								<a href="edit_obat.php?id=001" class="text-blue-500 hover:text-blue-700 font-semibold">Edit</a> 
 								|
 								<!-- Tombol Hapus -->
-								<a href="hapus_obat.php?id=001" class="text-red-500 hover:text-red-700 font-semibold" onclick="return confirm('Apakah Anda yakin ingin menghapus obat ini?');">Hapus</a>
+								<a href="#tabelobat" class="text-red-500 hover:text-red-700 font-semibold" onclick="showDeleteAlert(<?php echo $row['id'];?>, <?php echo $page; ?>);">Hapus</a>
 							</td>
 						</tr>
 					</tbody>
@@ -94,5 +95,28 @@ include 'functions/obat/kategoriobat/pagination.php';
     <footer class="absolute bottom-0 right-0 left-0 bg-[#101018] p-6 text-center">
         <p class="text-white">&copy; 2024 Apotek Sri. All Right Reserved</p>
     </footer>
+
+    <div id="deleteAlert" class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-lg font-semibold mb-4">Konfirmasi Penghapusan</h2>
+            <p class="mb-6">Apakah Anda yakin ingin menghapus item ini? Tindakan ini tidak bisa dibatalkan.</p>
+            <div class="flex justify-end space-x-4">
+                <button class="bg-gray-300 text-black px-4 py-2 rounded-md" onclick="closeDeleteAlert()">Batal</button>
+                <a href="" id="deleteLink" class="bg-red-500 text-white px-4 py-2 rounded-md">Hapus</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showDeleteAlert(id, page) {
+            document.getElementById('deleteAlert').classList.remove('hidden');
+            document.getElementById('deleteLink').setAttribute('href', '?delete='+id+'&page='+page);
+        }
+
+        function closeDeleteAlert() {
+            document.getElementById('deleteAlert').classList.add('hidden');
+        }
+    </script>
+
 </body>
 </html>
