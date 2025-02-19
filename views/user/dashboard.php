@@ -5,13 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>USER DASHBOARD</title>
 	<script src="https://cdn.tailwindcss.com"></script>
-	<style>
-		body {
-			background: url("asset/background.svg");
-		}
-	</style>
 </head>
-<body class="relative min-h-screen pb-[200px] bg-fixed bg-no-repeat bg-center bg-cover">
+<body class="relative bg-gray-100 min-h-screen pb-[200px] bg-fixed bg-no-repeat bg-center bg-cover">
 	<!-- Navbar -->
 	<?php include 'views/layout/navbar.php'; ?>
 	
@@ -20,7 +15,7 @@
 	</div>
 
 	<!-- Dashboard Content for Apotek Users -->
-	<div class="mt-6 mx-2 p-2 bg-[#73F1BD] shadow rounded-lg">
+	<div class="mt-6 mx-2 p-2 rounded-lg">
 		<div class="my-6 mx-2 grid grid-cols-1 md:grid-cols-3 gap-8">
 			<!-- Card 1: Produk Obat -->
 			<div class="bg-white p-6 rounded-lg shadow hover:scale-[1.05] transition ease-in-out duration-[100ms] cursor-pointer">

@@ -1,5 +1,9 @@
 <?php
-include 'functions/obat/detail.php';
+session_start();
+include 'functions/sessions/unlogined.php';
+include 'functions/config/connection.php';
+include 'functions/sessions/checkadmin.php';
+include 'functions/admin/obat/detail.php';
 ?>
 <html lang="en" class="scroll-smooth">
 <head>

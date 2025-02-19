@@ -1,0 +1,13 @@
+{
+    "require": {
+        "mpdf/mpdf": "^6.1",
+        "thujohn/pdf": "*",
+        "dompdf/dompdf": "^3.0",
+        "smalot/pdfparser": "^2.11"
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    }
+}
